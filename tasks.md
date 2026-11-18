@@ -134,13 +134,13 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **Commit:** `2201172`
   - **Estado:** `COMPLETADA`
 
-- [ ] **TASK-016**: Exportar y documentar colección de pruebas de endpoints en Postman.
+- [x] **TASK-016**: Exportar y documentar colección de pruebas de endpoints en Postman.
   - **Agente:** Tester
   - **RN/HU:** Todas
   - **Dependencia:** TASK-015
   - **Criterio de finalización:** Archivo `bibliotech.postman_collection.json` con variables de entorno y assertions automáticos para cada endpoint.
-  - **Commit:**
-  - **Estado:** `PENDIENTE`
+  - **Commit:** `28f9fe1`
+  - **Estado:** `COMPLETADA`
 
 ---
 
