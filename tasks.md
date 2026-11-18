@@ -66,13 +66,13 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **Commit:** `52dcaab`
   - **Estado:** `COMPLETADA`
 
-- [ ] **TASK-008**: Crear script SQL de esquema (`schema.sql`) y datos iniciales de prueba (`seed.sql`).
+- [x] **TASK-008**: Crear script SQL de esquema (`schema.sql`) y datos iniciales de prueba (`seed.sql`).
   - **Agente:** Arquitecto / Desarrollador Backend
   - **RN/HU:** RN1
   - **Dependencia:** TASK-007
   - **Criterio de finalización:** Script DDL ejecutable con ENUMs, tablas, claves foráneas y datos de usuarios (Admin, Alumno, Docente), recursos y ejemplares.
-  - **Commit:** 
-  - **Estado:** `PENDIENTE`
+  - **Commit:** `f9748fa`
+  - **Estado:** `COMPLETADA`
 
 ---
 
