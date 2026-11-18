@@ -3,6 +3,7 @@ import cors from 'cors';
 import authRoutes from './routes/authRoutes.js';
 import recursoRoutes from './routes/recursoRoutes.js';
 import prestamoRoutes from './routes/prestamoRoutes.js';
+import reservaRoutes from './routes/reservaRoutes.js';
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.get('/api/health', (req: Request, res: Response) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/recursos', recursoRoutes);
 app.use('/api/prestamos', prestamoRoutes);
+app.use('/api/reservas', reservaRoutes);
 
 // Middleware global de manejo de errores
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {

@@ -126,13 +126,13 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **Commit:** `a5b63fa`
   - **Estado:** `COMPLETADA`
 
-- [ ] **TASK-015**: Implementar Servicio de Reservas: cola FIFO, asignación automática (48 hs) y cancelación.
+- [x] **TASK-015**: Implementar Servicio de Reservas: cola FIFO, asignación automática (48 hs) y cancelación.
   - **Agente:** Tester / Desarrollador Backend / Revisor
   - **RN/HU:** RN7, RN8, RN9, RN10, HU5, HU6, HU7
   - **Dependencia:** TASK-014
   - **Criterio de finalización:** Tests de reserva solo con stock 0, asignación prioritaria en devolución, retiro con verificación de cupo y cancelación con reasignación inmediata.
-  - **Commit:**
-  - **Estado:** `PENDIENTE`
+  - **Commit:** `2201172`
+  - **Estado:** `COMPLETADA`
 
 - [ ] **TASK-016**: Exportar y documentar colección de pruebas de endpoints en Postman.
   - **Agente:** Tester
