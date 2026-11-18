@@ -102,13 +102,13 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **Commit:** `008a7b6`
   - **Estado:** `COMPLETADA`
 
-- [ ] **TASK-012**: Implementar Servicio de Préstamos: validación de cupos por rol y plazos.
+- [x] **TASK-012**: Implementar Servicio de Préstamos: validación de cupos por rol y plazos.
   - **Agente:** Tester / Desarrollador Backend / Revisor
   - **RN/HU:** RN2, RN3, RN4, HU2
   - **Dependencia:** TASK-011
   - **Criterio de finalización:** Tests para rechazo por cupo excedido (2 alumnos, 4 docentes) y rechazo por mora aprobados; registro exitoso con cálculo exacto de días corridos.
-  - **Commit:**
-  - **Estado:** `PENDIENTE`
+  - **Commit:** `adefcc4`
+  - **Estado:** `COMPLETADA`
 
 - [ ] **TASK-013**: Implementar Servicio de Renovaciones de Préstamos.
   - **Agente:** Tester / Desarrollador Backend / Revisor
