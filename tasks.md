@@ -78,20 +78,20 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
 
 ## FASE 7 — Desarrollo Backend y Lógica de Negocio (TDD)
 
-- [ ] **TASK-009**: Configurar servidor Express con TypeScript, pooling de base de datos PostgreSQL y middleware CORS seguro.
+- [x] **TASK-009**: Configurar servidor Express con TypeScript, pooling de base de datos PostgreSQL y middleware CORS seguro.
   - **Agente:** Desarrollador Backend
   - **RN/HU:** N/A (Infraestructura de backend)
   - **Dependencia:** TASK-008
   - **Criterio de finalización:** Servidor levanta en `http://localhost:3000`, test de salud `GET /api/health` responde 200 OK.
-  - **Commit:** 
-  - **Estado:** `PENDIENTE`
+  - **Commit:** `b6e4300`
+  - **Estado:** `COMPLETADA`
 
 - [ ] **TASK-010**: Implementar módulo de Autenticación, JWT y control de perfiles.
   - **Agente:** Tester / Desarrollador Backend / Revisor
   - **RN/HU:** HU2 (Identificación de usuarios y roles)
   - **Dependencia:** TASK-009
   - **Criterio de finalización:** Tests de login exitoso y credenciales inválidas pasan; generación de token JWT firmado.
-  - **Commit:** 
+  - **Commit:**
   - **Estado:** `PENDIENTE`
 
 - [ ] **TASK-011**: Implementar Catálogo de Recursos y Ejemplares (Endpoints y consultas con filtros).
@@ -99,7 +99,7 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **RN/HU:** RN1, HU1
   - **Dependencia:** TASK-010
   - **Criterio de finalización:** Tests unitarios y de endpoint `GET /api/recursos` pasando (filtros por texto, categoría y disponibilidad).
-  - **Commit:** 
+  - **Commit:**
   - **Estado:** `PENDIENTE`
 
 - [ ] **TASK-012**: Implementar Servicio de Préstamos: validación de cupos por rol y plazos.
@@ -107,7 +107,7 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **RN/HU:** RN2, RN3, RN4, HU2
   - **Dependencia:** TASK-011
   - **Criterio de finalización:** Tests para rechazo por cupo excedido (2 alumnos, 4 docentes) y rechazo por mora aprobados; registro exitoso con cálculo exacto de días corridos.
-  - **Commit:** 
+  - **Commit:**
   - **Estado:** `PENDIENTE`
 
 - [ ] **TASK-013**: Implementar Servicio de Renovaciones de Préstamos.
@@ -115,7 +115,7 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **RN/HU:** RN6, HU3
   - **Dependencia:** TASK-012
   - **Criterio de finalización:** Tests que aprueban 1 renovación válida y rechazan segunda renovación, préstamo vencido o con reservas existentes.
-  - **Commit:** 
+  - **Commit:**
   - **Estado:** `PENDIENTE`
 
 - [ ] **TASK-014**: Implementar Servicio de Devoluciones y Motor de Sanciones por Mora o Deterioro.
@@ -123,7 +123,7 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **RN/HU:** RN4, RN5, RN11, HU4
   - **Dependencia:** TASK-013
   - **Criterio de finalización:** Tests que comprueban cálculo de suspensión ($2 \times \text{días}$), levantamiento de mora y asignación de bloqueo administrativo por daño.
-  - **Commit:** 
+  - **Commit:**
   - **Estado:** `PENDIENTE`
 
 - [ ] **TASK-015**: Implementar Servicio de Reservas: cola FIFO, asignación automática (48 hs) y cancelación.
@@ -131,7 +131,7 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **RN/HU:** RN7, RN8, RN9, RN10, HU5, HU6, HU7
   - **Dependencia:** TASK-014
   - **Criterio de finalización:** Tests de reserva solo con stock 0, asignación prioritaria en devolución, retiro con verificación de cupo y cancelación con reasignación inmediata.
-  - **Commit:** 
+  - **Commit:**
   - **Estado:** `PENDIENTE`
 
 - [ ] **TASK-016**: Exportar y documentar colección de pruebas de endpoints en Postman.
@@ -139,7 +139,7 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **RN/HU:** Todas
   - **Dependencia:** TASK-015
   - **Criterio de finalización:** Archivo `bibliotech.postman_collection.json` con variables de entorno y assertions automáticos para cada endpoint.
-  - **Commit:** 
+  - **Commit:**
   - **Estado:** `PENDIENTE`
 
 ---
@@ -151,7 +151,7 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **RN/HU:** N/A (Infraestructura Frontend)
   - **Dependencia:** TASK-015
   - **Criterio de finalización:** App levanta con Vite, layout responsive con navegación y barra de estado de autenticación.
-  - **Commit:** 
+  - **Commit:**
   - **Estado:** `PENDIENTE`
 
 - [ ] **TASK-018**: Desarrollar vista de Catálogo y Búsqueda con tarjetas interactivas y detalle de ejemplares.
@@ -159,7 +159,7 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **RN/HU:** RN1, HU1
   - **Dependencia:** TASK-017
   - **Criterio de finalización:** Filtros en tiempo real, badges de disponibilidad, sin botones simulados.
-  - **Commit:** 
+  - **Commit:**
   - **Estado:** `PENDIENTE`
 
 - [ ] **TASK-019**: Desarrollar Panel del Lector (Préstamos activos, botón de renovación y gestión de reservas con cuenta regresiva de 48 hs).
@@ -167,7 +167,7 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **RN/HU:** RN3, RN6, RN7, RN8, RN10, HU3, HU5, HU6
   - **Dependencia:** TASK-018
   - **Criterio de finalización:** Acciones reales de renovación y cancelación con feedback inmediato y alertas de mora/suspensión.
-  - **Commit:** 
+  - **Commit:**
   - **Estado:** `PENDIENTE`
 
 - [ ] **TASK-020**: Desarrollar Panel de Administración del Bibliotecario (Mostrador de Préstamos, Devoluciones con estado físico y control de reservas).
@@ -175,7 +175,7 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **RN/HU:** RN1, RN2, RN4, RN5, RN9, RN11, HU2, HU4, HU7
   - **Dependencia:** TASK-019
   - **Criterio de finalización:** Formularios de préstamo presencial con validación de cupo, registro de devolución con cálculo visible de sanción y efectivización de reservas.
-  - **Commit:** 
+  - **Commit:**
   - **Estado:** `PENDIENTE`
 
 ---
@@ -187,7 +187,7 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **RN/HU:** Todas
   - **Dependencia:** TASK-020
   - **Criterio de finalización:** 100% de tests automáticos en verde ejecutados en consola.
-  - **Commit:** 
+  - **Commit:**
   - **Estado:** `PENDIENTE`
 
 - [ ] **TASK-022**: Configuración y despliegue en la nube (Neon PostgreSQL, Render Backend, Netlify Frontend).
@@ -195,7 +195,7 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **RN/HU:** N/A (Despliegue)
   - **Dependencia:** TASK-021
   - **Criterio de finalización:** Backend y Frontend accesibles públicamente con HTTPS y CORS restringido.
-  - **Commit:** 
+  - **Commit:**
   - **Estado:** `PENDIENTE`
 
 - [ ] **TASK-023**: Creación del README definitivo e Informe Final de Planificación y Pruebas.
@@ -203,7 +203,7 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **RN/HU:** Todas
   - **Dependencia:** TASK-022
   - **Criterio de finalización:** `README.md` con enlaces públicos verificados e `informe-final.md` con justificación del orden de tareas y matriz de resultados de pruebas.
-  - **Commit:** 
+  - **Commit:**
   - **Estado:** `PENDIENTE`
 
 - [ ] **TASK-024**: Auditoría final de entrega contra la checklist de la consigna.
@@ -211,5 +211,5 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **RN/HU:** Todas
   - **Dependencia:** TASK-023
   - **Criterio de finalización:** Verificación punto por punto de la consigna oficial, 100% de tareas comiteadas y marcadas como completadas.
-  - **Commit:** 
+  - **Commit:**
   - **Estado:** `PENDIENTE`
