@@ -86,13 +86,13 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **Commit:** `b6e4300`
   - **Estado:** `COMPLETADA`
 
-- [ ] **TASK-010**: Implementar módulo de Autenticación, JWT y control de perfiles.
+- [x] **TASK-010**: Implementar módulo de Autenticación, JWT y control de perfiles.
   - **Agente:** Tester / Desarrollador Backend / Revisor
   - **RN/HU:** HU2 (Identificación de usuarios y roles)
   - **Dependencia:** TASK-009
   - **Criterio de finalización:** Tests de login exitoso y credenciales inválidas pasan; generación de token JWT firmado.
-  - **Commit:**
-  - **Estado:** `PENDIENTE`
+  - **Commit:** `c10c784`
+  - **Estado:** `COMPLETADA`
 
 - [ ] **TASK-011**: Implementar Catálogo de Recursos y Ejemplares (Endpoints y consultas con filtros).
   - **Agente:** Tester / Desarrollador Backend / Revisor

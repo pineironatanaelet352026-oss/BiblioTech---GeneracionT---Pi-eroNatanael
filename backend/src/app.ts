@@ -1,5 +1,6 @@
 import express, { type Request, type Response, type NextFunction } from 'express';
 import cors from 'cors';
+import authRoutes from './routes/authRoutes.js';
 
 const app = express();
 
@@ -12,7 +13,6 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: (origin, callback) => {
-    // Permitir requests sin origin (como apps móviles, Postman o tests de Supertest)
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -33,10 +33,13 @@ app.get('/api/health', (req: Request, res: Response) => {
   });
 });
 
+// Rutas de autenticación
+app.use('/api/auth', authRoutes);
+
 // Middleware global de manejo de errores
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-  console.error('[Error no controlado]', err);
-  res.status(err.status || 500).json({
+  const status = err.status || 500;
+  res.status(status).json({
     success: false,
     data: null,
     error: err.message || 'Error interno del servidor'
