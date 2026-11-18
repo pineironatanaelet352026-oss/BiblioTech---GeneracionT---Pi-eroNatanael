@@ -146,13 +146,13 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
 
 ## FASE 8 — Desarrollo Frontend (React + TypeScript)
 
-- [ ] **TASK-017**: Inicializar aplicación React con Vite, TypeScript, Tailwind CSS y cliente de API configurado.
+- [x] **TASK-017**: Inicializar aplicación React con Vite, TypeScript, Tailwind CSS y cliente de API configurado.
   - **Agente:** Desarrollador Frontend
   - **RN/HU:** N/A (Infraestructura Frontend)
   - **Dependencia:** TASK-015
   - **Criterio de finalización:** App levanta con Vite, layout responsive con navegación y barra de estado de autenticación.
-  - **Commit:**
-  - **Estado:** `PENDIENTE`
+  - **Commit:** `c9f97f8`
+  - **Estado:** `COMPLETADA`
 
 - [ ] **TASK-018**: Desarrollar vista de Catálogo y Búsqueda con tarjetas interactivas y detalle de ejemplares.
   - **Agente:** Desarrollador Frontend
