@@ -94,13 +94,13 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **Commit:** `c10c784`
   - **Estado:** `COMPLETADA`
 
-- [ ] **TASK-011**: Implementar Catálogo de Recursos y Ejemplares (Endpoints y consultas con filtros).
+- [x] **TASK-011**: Implementar Catálogo de Recursos y Ejemplares (Endpoints y consultas con filtros).
   - **Agente:** Tester / Desarrollador Backend / Revisor
   - **RN/HU:** RN1, HU1
   - **Dependencia:** TASK-010
   - **Criterio de finalización:** Tests unitarios y de endpoint `GET /api/recursos` pasando (filtros por texto, categoría y disponibilidad).
-  - **Commit:**
-  - **Estado:** `PENDIENTE`
+  - **Commit:** `008a7b6`
+  - **Estado:** `COMPLETADA`
 
 - [ ] **TASK-012**: Implementar Servicio de Préstamos: validación de cupos por rol y plazos.
   - **Agente:** Tester / Desarrollador Backend / Revisor

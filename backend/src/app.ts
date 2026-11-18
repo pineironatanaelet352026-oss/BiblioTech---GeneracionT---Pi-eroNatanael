@@ -1,6 +1,7 @@
 import express, { type Request, type Response, type NextFunction } from 'express';
 import cors from 'cors';
 import authRoutes from './routes/authRoutes.js';
+import recursoRoutes from './routes/recursoRoutes.js';
 
 const app = express();
 
@@ -33,8 +34,9 @@ app.get('/api/health', (req: Request, res: Response) => {
   });
 });
 
-// Rutas de autenticación
+// Rutas
 app.use('/api/auth', authRoutes);
+app.use('/api/recursos', recursoRoutes);
 
 // Middleware global de manejo de errores
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
