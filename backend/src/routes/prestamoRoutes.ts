@@ -50,4 +50,23 @@ router.post('/', autenticarToken, requerirRol(['ADMIN']), async (req: AuthReques
   }
 });
 
+// POST /api/prestamos/:id/renovar (Lector o ADMIN - Cumple RN6 y HU3)
+router.post('/:id/renovar', autenticarToken, async (req: AuthRequest, res: Response, next: NextFunction) => {
+  try {
+    const prestamoId = parseInt(req.params.id, 10);
+    const usuarioId = req.user!.id;
+    const rol = req.user!.rol;
+
+    const resultado = await PrestamoService.renovarPrestamo(prestamoId, usuarioId, rol);
+
+    res.status(200).json({
+      success: true,
+      data: resultado,
+      error: null
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
 export default router;

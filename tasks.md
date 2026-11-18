@@ -110,13 +110,13 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **Commit:** `adefcc4`
   - **Estado:** `COMPLETADA`
 
-- [ ] **TASK-013**: Implementar Servicio de Renovaciones de Préstamos.
+- [x] **TASK-013**: Implementar Servicio de Renovaciones de Préstamos.
   - **Agente:** Tester / Desarrollador Backend / Revisor
   - **RN/HU:** RN6, HU3
   - **Dependencia:** TASK-012
   - **Criterio de finalización:** Tests que aprueban 1 renovación válida y rechazan segunda renovación, préstamo vencido o con reservas existentes.
-  - **Commit:**
-  - **Estado:** `PENDIENTE`
+  - **Commit:** `33e1b33`
+  - **Estado:** `COMPLETADA`
 
 - [ ] **TASK-014**: Implementar Servicio de Devoluciones y Motor de Sanciones por Mora o Deterioro.
   - **Agente:** Tester / Desarrollador Backend / Revisor

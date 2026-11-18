@@ -16,6 +16,19 @@ export interface PrestamoItem {
   dias_retraso: number;
 }
 
+export interface ReservaItem {
+  id: number;
+  recurso_id: number;
+  usuario_id: number;
+  ejemplar_asignado_id: number | null;
+  fecha_solicitud: string;
+  fecha_asignacion: string | null;
+  fecha_limite_retiro: string | null;
+  estado: 'PENDIENTE' | 'ASIGNADA' | 'FINALIZADA' | 'CADUCADA' | 'CANCELADA';
+}
+
+export let RESERVAS_MOCK: ReservaItem[] = [];
+
 export let PRESTAMOS_MOCK: PrestamoItem[] = [
   // Préstamo inicial activo (Juan Pérez tiene prestado Química Orgánica)
   {
@@ -47,7 +60,6 @@ export class PrestamoService {
   }
 
   static async registrarPrestamo(usuarioId: number, ejemplarId: number, bibliotecarioId: number) {
-    // 1. Obtener usuario y validar estado
     const usuario = USUARIOS_MOCK.find(u => u.id === usuarioId);
     if (!usuario) {
       const err: any = new Error('Usuario no encontrado');
@@ -55,7 +67,6 @@ export class PrestamoService {
       throw err;
     }
 
-    // Cumple RN4: Verificación de sanciones o mora previa
     if (usuario.estado === 'BLOQUEADO_POR_MORA') {
       const err: any = new Error('Operación rechazada: El usuario posee un bloqueo preventivo por mora');
       err.status = 403;
@@ -67,7 +78,6 @@ export class PrestamoService {
       throw err;
     }
 
-    // Cumple RN4: Verificar si tiene algún préstamo vencido en curso
     const ahora = new Date();
     const tienePrestamoVencido = PRESTAMOS_MOCK.some(p => 
       p.usuario_id === usuarioId && 
@@ -82,7 +92,6 @@ export class PrestamoService {
       throw err;
     }
 
-    // Cumple RN2: Validar cupo máximo simultáneo por rol (2 para Alumno, 4 para Docente)
     const prestamosActivos = PRESTAMOS_MOCK.filter(p => p.usuario_id === usuarioId && p.estado === 'ACTIVO');
     const cupoMaximo = this.obtenerCupoMaximoPorRol(usuario.rol);
 
@@ -92,7 +101,6 @@ export class PrestamoService {
       throw err;
     }
 
-    // 2. Obtener ejemplar y validar disponibilidad (RN1)
     const ejemplar = EJEMPLARES_MOCK.find(e => e.id === ejemplarId);
     if (!ejemplar) {
       const err: any = new Error('Ejemplar físico no encontrado');
@@ -106,11 +114,9 @@ export class PrestamoService {
       throw err;
     }
 
-    // Cumple RN3: Cálculo de fecha límite según rol (7 días Alumno, 14 días Docente)
     const diasPrestamo = this.obtenerDiasPlazoPorRol(usuario.rol);
     const fechaLimite = new Date(ahora.getTime() + diasPrestamo * 24 * 60 * 60 * 1000);
 
-    // Actualizar estado del ejemplar (RN1)
     ejemplar.estado = 'PRESTADO';
 
     const nuevoPrestamo: PrestamoItem = {
@@ -136,13 +142,89 @@ export class PrestamoService {
     };
   }
 
+  // Cumple RN6: Lógica de renovación de préstamos
+  static async renovarPrestamo(prestamoId: number, usuarioSolicitanteId: number, rolSolicitante: string) {
+    const prestamo = PRESTAMOS_MOCK.find(p => p.id === prestamoId);
+    if (!prestamo) {
+      const err: any = new Error('Préstamo no encontrado');
+      err.status = 404;
+      throw err;
+    }
+
+    // Validación de permisos: un lector solo puede renovar su propio préstamo
+    if (rolSolicitante !== 'ADMIN' && prestamo.usuario_id !== usuarioSolicitanteId) {
+      const err: any = new Error('Permisos insuficientes: No puedes renovar el préstamo de otro usuario');
+      err.status = 403;
+      throw err;
+    }
+
+    if (prestamo.estado !== 'ACTIVO') {
+      const err: any = new Error(`No se puede renovar un préstamo en estado ${prestamo.estado}`);
+      err.status = 400;
+      throw err;
+    }
+
+    // Cumple RN6.1: Máximo 1 renovación permitida
+    if (prestamo.renovaciones_realizadas >= 1) {
+      const err: any = new Error('Operación rechazada: Se ha alcanzado el límite máximo de 1 renovación para este préstamo');
+      err.status = 409;
+      throw err;
+    }
+
+    // Cumple RN6.2: El préstamo no debe estar vencido al momento de la solicitud
+    const ahora = new Date();
+    const fechaLimiteActual = new Date(prestamo.fecha_limite);
+    if (fechaLimiteActual < ahora) {
+      const err: any = new Error('Operación rechazada: No se puede renovar un préstamo que ya se encuentra vencido (en mora)');
+      err.status = 409;
+      throw err;
+    }
+
+    // Cumple RN6.3: El usuario no debe tener sanciones ni otros préstamos vencidos
+    const usuario = USUARIOS_MOCK.find(u => u.id === prestamo.usuario_id);
+    if (usuario && (usuario.estado === 'BLOQUEADO_POR_MORA' || usuario.estado === 'SUSPENDIDO' || usuario.estado === 'BLOQUEADO_ADMINISTRATIVO')) {
+      const err: any = new Error(`Operación rechazada: El usuario posee un bloqueo o suspensión activa (${usuario.estado})`);
+      err.status = 403;
+      throw err;
+    }
+
+    // Cumple RN6.4: No deben existir reservas activas en cola sobre este título por otros usuarios
+    const ejemplar = EJEMPLARES_MOCK.find(e => e.id === prestamo.ejemplar_id);
+    if (ejemplar) {
+      const tieneReservasEnEspera = RESERVAS_MOCK.some(
+        r => r.recurso_id === ejemplar.recurso_id && 
+             (r.estado === 'PENDIENTE' || r.estado === 'ASIGNADA') &&
+             r.usuario_id !== prestamo.usuario_id
+      );
+
+      if (tieneReservasEnEspera) {
+        const err: any = new Error('Operación rechazada: No se puede renovar porque existen reservas activas en cola de espera para este título');
+        err.status = 409;
+        throw err;
+      }
+    }
+
+    // Extender la fecha límite por el período original del rol (7 días para alumno, 14 para docente)
+    const rolUsuario = usuario ? usuario.rol : 'ALUMNO';
+    const diasExtension = this.obtenerDiasPlazoPorRol(rolUsuario);
+    const nuevaFechaLimite = new Date(fechaLimiteActual.getTime() + diasExtension * 24 * 60 * 60 * 1000);
+
+    prestamo.fecha_limite = nuevaFechaLimite.toISOString();
+    prestamo.renovaciones_realizadas += 1;
+
+    return {
+      ...prestamo,
+      dias_extendidos: diasExtension,
+      mensaje: `Préstamo renovado exitosamente por ${diasExtension} días adicionales`
+    };
+  }
+
   static async listarPrestamos(usuarioId?: number, rol?: string) {
     let lista = PRESTAMOS_MOCK;
     if (rol !== 'ADMIN' && usuarioId) {
       lista = lista.filter(p => p.usuario_id === usuarioId);
     }
 
-    // Enriquecer con datos del título y ejemplar
     return lista.map(p => {
       const ejemplar = EJEMPLARES_MOCK.find(e => e.id === p.ejemplar_id);
       const recurso = ejemplar ? RECURSOS_MOCK.find(r => r.id === ejemplar.recurso_id) : null;
