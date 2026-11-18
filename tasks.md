@@ -51,20 +51,20 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **RN/HU:** Todas (Fase 5)
   - **Dependencia:** TASK-005
   - **Criterio de finalización:** Roles asignados y tareas desglosadas con dependencias.
-  - **Commit:** *Pendiente de registro en este paso*
+  - **Commit:** `e4e6054`
   - **Estado:** `COMPLETADA`
 
 ---
 
 ## FASE 6 — Configuración del Entorno y Base de Datos
 
-- [ ] **TASK-007**: Configurar estructura modular del proyecto (`backend/` y `frontend/`) y variables de entorno seguras (`.env.example`).
+- [x] **TASK-007**: Configurar estructura modular del proyecto (`backend/` y `frontend/`) y variables de entorno seguras (`.env.example`).
   - **Agente:** Arquitecto
   - **RN/HU:** N/A (Configuración de entorno)
   - **Dependencia:** TASK-006
   - **Criterio de finalización:** Directorios base creados, `package.json` base, `.env.example` completo sin secretos.
-  - **Commit:** 
-  - **Estado:** `PENDIENTE`
+  - **Commit:** `52dcaab`
+  - **Estado:** `COMPLETADA`
 
 - [ ] **TASK-008**: Crear script SQL de esquema (`schema.sql`) y datos iniciales de prueba (`seed.sql`).
   - **Agente:** Arquitecto / Desarrollador Backend
