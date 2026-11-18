@@ -3,8 +3,20 @@ import { query } from '../db/index.js';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'clave_secreta_jwt_para_firmar_tokens_ejemplo_seguro_12345';
 
+export interface UsuarioItem {
+  id: number;
+  dni: string;
+  nombre: string;
+  apellido: string;
+  email: string;
+  password?: string;
+  rol: 'ADMIN' | 'ALUMNO' | 'DOCENTE';
+  estado: 'ACTIVO' | 'BLOQUEADO_POR_MORA' | 'BLOQUEADO_ADMINISTRATIVO' | 'SUSPENDIDO';
+  fecha_fin_suspension: string | null;
+}
+
 // Mock de base en memoria para tests unitarios o fallback si la BD externa no está conectada
-export const USUARIOS_MOCK = [
+export const USUARIOS_MOCK: UsuarioItem[] = [
   {
     id: 1,
     dni: 'ADMIN01',

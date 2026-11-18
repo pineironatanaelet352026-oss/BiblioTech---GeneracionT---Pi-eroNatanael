@@ -1,5 +1,6 @@
 import { Router, Response, NextFunction } from 'express';
 import { PrestamoService } from '../services/PrestamoService.js';
+import { DevolucionService } from '../services/DevolucionService.js';
 import { autenticarToken, requerirRol, type AuthRequest } from '../middlewares/auth.js';
 
 const router = Router();
@@ -58,6 +59,29 @@ router.post('/:id/renovar', autenticarToken, async (req: AuthRequest, res: Respo
     const rol = req.user!.rol;
 
     const resultado = await PrestamoService.renovarPrestamo(prestamoId, usuarioId, rol);
+
+    res.status(200).json({
+      success: true,
+      data: resultado,
+      error: null
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// POST /api/prestamos/:id/devolver (Solo ADMIN - Cumple RN4, RN5, RN8, RN11, HU4)
+router.post('/:id/devolver', autenticarToken, requerirRol(['ADMIN']), async (req: AuthRequest, res: Response, next: NextFunction) => {
+  try {
+    const prestamoId = parseInt(req.params.id, 10);
+    const bibliotecarioId = req.user!.id;
+    const { estado_fisico } = req.body;
+
+    const resultado = await DevolucionService.registrarDevolucion(
+      prestamoId,
+      estado_fisico || 'OPTIMO',
+      bibliotecarioId
+    );
 
     res.status(200).json({
       success: true,

@@ -118,13 +118,13 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **Commit:** `33e1b33`
   - **Estado:** `COMPLETADA`
 
-- [ ] **TASK-014**: Implementar Servicio de Devoluciones y Motor de Sanciones por Mora o Deterioro.
+- [x] **TASK-014**: Implementar Servicio de Devoluciones y Motor de Sanciones por Mora o Deterioro.
   - **Agente:** Tester / Desarrollador Backend / Revisor
   - **RN/HU:** RN4, RN5, RN11, HU4
   - **Dependencia:** TASK-013
   - **Criterio de finalización:** Tests que comprueban cálculo de suspensión ($2 \times \text{días}$), levantamiento de mora y asignación de bloqueo administrativo por daño.
-  - **Commit:**
-  - **Estado:** `PENDIENTE`
+  - **Commit:** `a5b63fa`
+  - **Estado:** `COMPLETADA`
 
 - [ ] **TASK-015**: Implementar Servicio de Reservas: cola FIFO, asignación automática (48 hs) y cancelación.
   - **Agente:** Tester / Desarrollador Backend / Revisor
