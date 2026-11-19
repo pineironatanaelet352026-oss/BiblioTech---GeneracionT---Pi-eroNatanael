@@ -170,13 +170,13 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **Commit:** `5e1624a`
   - **Estado:** `COMPLETADA`
 
-- [ ] **TASK-020**: Desarrollar Panel de Administración del Bibliotecario (Mostrador de Préstamos, Devoluciones con estado físico y control de reservas).
+- [x] **TASK-020**: Desarrollar Panel de Administración del Bibliotecario (Mostrador de Préstamos, Devoluciones con estado físico y control de reservas).
   - **Agente:** Desarrollador Frontend
   - **RN/HU:** RN1, RN2, RN4, RN5, RN9, RN11, HU2, HU4, HU7
   - **Dependencia:** TASK-019
   - **Criterio de finalización:** Formularios de préstamo presencial con validación de cupo, registro de devolución con cálculo visible de sanción y efectivización de reservas.
-  - **Commit:**
-  - **Estado:** `PENDIENTE`
+  - **Commit:** `a8bd9e4`
+  - **Estado:** `COMPLETADA`
 
 ---
 

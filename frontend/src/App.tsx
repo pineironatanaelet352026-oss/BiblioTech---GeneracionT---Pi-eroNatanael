@@ -3,6 +3,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import { Navbar, type VistaTipo } from './components/Navbar';
 import { Catalogo } from './components/Catalogo';
 import { PanelLector } from './components/PanelLector';
+import { PanelAdmin } from './components/PanelAdmin';
 import { Users } from 'lucide-react';
 
 const ContenidoApp: React.FC = () => {
@@ -156,6 +157,9 @@ const ContenidoApp: React.FC = () => {
 
         {/* Vista de Panel del Lector (TASK-019 / HU3, HU5, HU6, RN2, RN3, RN6, RN8, RN10) */}
         {vistaActual === 'mis-prestamos' && usuario && <PanelLector />}
+
+        {/* Vista de Panel de Administración (TASK-020 / HU2, HU4, HU7, RN1, RN2, RN4, RN5, RN9, RN11) */}
+        {vistaActual === 'admin' && usuario?.rol === 'ADMIN' && <PanelAdmin />}
 
       </main>
 
