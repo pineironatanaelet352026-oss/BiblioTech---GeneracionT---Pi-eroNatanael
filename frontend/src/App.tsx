@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { Navbar, type VistaTipo } from './components/Navbar';
 import { Catalogo } from './components/Catalogo';
+import { PanelLector } from './components/PanelLector';
 import { Users } from 'lucide-react';
 
 const ContenidoApp: React.FC = () => {
@@ -152,6 +153,9 @@ const ContenidoApp: React.FC = () => {
 
         {/* Vista de Catálogo (TASK-018 / RN1, HU1) */}
         {vistaActual === 'catalogo' && <Catalogo />}
+
+        {/* Vista de Panel del Lector (TASK-019 / HU3, HU5, HU6, RN2, RN3, RN6, RN8, RN10) */}
+        {vistaActual === 'mis-prestamos' && usuario && <PanelLector />}
 
       </main>
 

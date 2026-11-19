@@ -162,13 +162,13 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **Commit:** `5825163`
   - **Estado:** `COMPLETADA`
 
-- [ ] **TASK-019**: Desarrollar Panel del Lector (Préstamos activos, botón de renovación y gestión de reservas con cuenta regresiva de 48 hs).
+- [x] **TASK-019**: Desarrollar Panel del Lector (Préstamos activos, botón de renovación y gestión de reservas con cuenta regresiva de 48 hs).
   - **Agente:** Desarrollador Frontend
   - **RN/HU:** RN3, RN6, RN7, RN8, RN10, HU3, HU5, HU6
   - **Dependencia:** TASK-018
   - **Criterio de finalización:** Acciones reales de renovación y cancelación con feedback inmediato y alertas de mora/suspensión.
-  - **Commit:**
-  - **Estado:** `PENDIENTE`
+  - **Commit:** `5e1624a`
+  - **Estado:** `COMPLETADA`
 
 - [ ] **TASK-020**: Desarrollar Panel de Administración del Bibliotecario (Mostrador de Préstamos, Devoluciones con estado físico y control de reservas).
   - **Agente:** Desarrollador Frontend
