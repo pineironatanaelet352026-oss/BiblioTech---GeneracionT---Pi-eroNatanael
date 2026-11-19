@@ -1,4 +1,4 @@
-# 📚 BiblioTech — Sistema de Gestión de Préstamos para Biblioteca Escolar
+# BiblioTech — Sistema de Gestión de Préstamos para Biblioteca Escolar
 
 > **Proyecto Final — Bootcamp IA-First (Generación T)**  
 > Desarrollado por: **Natanael Piñero** (con asistencia de IA)  
@@ -6,13 +6,13 @@
 
 ---
 
-## 🎯 Objetivo del Proyecto
+## Objetivo del Proyecto
 
 BiblioTech es una aplicación web full-stack diseñada para modernizar y transparentar la gestión de préstamos, devoluciones, sanciones y reservas en una biblioteca escolar. El sistema reemplaza los registros en papel o planillas manuales mediante la automatización estricta de **11 Reglas de Negocio (RN1–RN11)** y **7 Historias de Usuario (HU1–HU7)**, garantizando equidad en el acceso al material bibliográfico, trazabilidad completa de cada ejemplar y control automatizado de penalizaciones por mora o deterioro.
 
 ---
 
-## ✨ Características Principales
+## Características Principales
 
 1. **Gestión de Ejemplares Individuales (RN1):** Cada copia física de un libro posee su propio código de inventario y transita de forma estricta por los estados: `DISPONIBLE`, `PRESTADO`, `RESERVADO`, `EN_REPARACION` y `DADO_DE_BAJA`.
 2. **Cupos Diferenciados por Rol (RN2):**
@@ -35,7 +35,7 @@ BiblioTech es una aplicación web full-stack diseñada para modernizar y transpa
 
 ---
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico
 
 | Capa | Tecnología | Justificación |
 |---|---|---|
@@ -50,7 +50,7 @@ BiblioTech es una aplicación web full-stack diseñada para modernizar y transpa
 
 ---
 
-## 🏗️ Arquitectura del Sistema
+## Arquitectura del Sistema
 
 ```
                       ┌──────────────────────────────────────────────┐
@@ -79,7 +79,7 @@ BiblioTech es una aplicación web full-stack diseñada para modernizar y transpa
 
 ---
 
-## 🚀 Puesta en Marcha en Entorno Local
+## Puesta en Marcha en Entorno Local
 
 ### Prerrequisitos
 - **Node.js** v20.x o superior
@@ -119,7 +119,7 @@ La aplicación web quedará accesible en `http://localhost:5173`.
 
 ---
 
-## 👥 Credenciales de Prueba Preconfiguradas
+## Credenciales de Prueba Preconfiguradas
 
 Para facilitar la evaluación de roles y reglas de negocio, el sistema incluye usuarios precargados (contraseña para todos: `password123`):
 
@@ -132,7 +132,7 @@ Para facilitar la evaluación de roles y reglas de negocio, el sistema incluye u
 
 ---
 
-## 🧪 Ejecución de Pruebas Automatizadas
+## Ejecución de Pruebas Automatizadas
 
 El proyecto cuenta con **31 pruebas automatizadas** que cubren el 100% de las 11 Reglas de Negocio.
 
@@ -160,7 +160,7 @@ La matriz completa de pruebas y resultados detallados se encuentra documentada e
 
 ---
 
-## 🌐 Enlaces del Proyecto
+## Enlaces del Proyecto
 
 - **Repositorio GitHub:** [https://github.com/pineironatanaelet352026-oss/BiblioTech---GeneracionT---Pi-eroNatanael](https://github.com/pineironatanaelet352026-oss/BiblioTech---GeneracionT---Pi-eroNatanael)
 - **Colección de Postman:** [`backend/bibliotech.postman_collection.json`](./backend/bibliotech.postman_collection.json)
