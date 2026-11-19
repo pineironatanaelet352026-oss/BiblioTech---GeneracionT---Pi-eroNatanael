@@ -198,13 +198,13 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **Commit:** `ad9f35d`
   - **Estado:** `COMPLETADA`
 
-- [ ] **TASK-023**: Creación del README definitivo e Informe Final de Planificación y Pruebas.
+- [x] **TASK-023**: Creación del README definitivo e Informe Final de Planificación y Pruebas.
   - **Agente:** Analista / Arquitecto / Tester
   - **RN/HU:** Todas
   - **Dependencia:** TASK-022
   - **Criterio de finalización:** `README.md` con enlaces públicos verificados e `informe-final.md` con justificación del orden de tareas y matriz de resultados de pruebas.
-  - **Commit:**
-  - **Estado:** `PENDIENTE`
+  - **Commit:** `5185551`
+  - **Estado:** `COMPLETADA`
 
 - [ ] **TASK-024**: Auditoría final de entrega contra la checklist de la consigna.
   - **Agente:** Revisor / Product Owner
