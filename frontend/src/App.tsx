@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { Navbar, type VistaTipo } from './components/Navbar';
-import { BookOpen, Users } from 'lucide-react';
+import { Catalogo } from './components/Catalogo';
+import { Users } from 'lucide-react';
 
 const ContenidoApp: React.FC = () => {
   const [vistaActual, setVistaActual] = useState<VistaTipo>('catalogo');
@@ -149,16 +150,8 @@ const ContenidoApp: React.FC = () => {
           </div>
         )}
 
-        {/* Placeholder de integración de vistas que implementaremos en TASK-018, 019 y 020 */}
-        {vistaActual === 'catalogo' && (
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm text-center">
-            <BookOpen className="w-12 h-12 text-brand-500 mx-auto mb-3" />
-            <h2 className="text-lg font-bold text-slate-900 mb-1">Módulo de Catálogo Activo</h2>
-            <p className="text-sm text-slate-500 max-w-md mx-auto">
-              Frontend base inicializado con React 18, Vite y Tailwind CSS conectado a la API de BiblioTech.
-            </p>
-          </div>
-        )}
+        {/* Vista de Catálogo (TASK-018 / RN1, HU1) */}
+        {vistaActual === 'catalogo' && <Catalogo />}
 
       </main>
 

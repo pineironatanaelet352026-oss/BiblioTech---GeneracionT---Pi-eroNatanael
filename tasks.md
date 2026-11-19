@@ -154,13 +154,13 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **Commit:** `c9f97f8`
   - **Estado:** `COMPLETADA`
 
-- [ ] **TASK-018**: Desarrollar vista de Catálogo y Búsqueda con tarjetas interactivas y detalle de ejemplares.
+- [x] **TASK-018**: Desarrollar vista de Catálogo y Búsqueda con tarjetas interactivas y detalle de ejemplares.
   - **Agente:** Desarrollador Frontend
   - **RN/HU:** RN1, HU1
   - **Dependencia:** TASK-017
   - **Criterio de finalización:** Filtros en tiempo real, badges de disponibilidad, sin botones simulados.
-  - **Commit:**
-  - **Estado:** `PENDIENTE`
+  - **Commit:** `5825163`
+  - **Estado:** `COMPLETADA`
 
 - [ ] **TASK-019**: Desarrollar Panel del Lector (Préstamos activos, botón de renovación y gestión de reservas con cuenta regresiva de 48 hs).
   - **Agente:** Desarrollador Frontend
