@@ -182,13 +182,13 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
 
 ## FASE 9 a FASE 13 — Calidad, Despliegue y Entrega
 
-- [ ] **TASK-021**: Suite completa de tests de integración frontend-backend y pruebas de casos límite.
+- [x] **TASK-021**: Suite completa de tests de integración frontend-backend y pruebas de casos límite.
   - **Agente:** Tester / Revisor
   - **RN/HU:** Todas
   - **Dependencia:** TASK-020
   - **Criterio de finalización:** 100% de tests automáticos en verde ejecutados en consola.
-  - **Commit:**
-  - **Estado:** `PENDIENTE`
+  - **Commit:** `78b0ae2`
+  - **Estado:** `COMPLETADA`
 
 - [ ] **TASK-022**: Configuración y despliegue en la nube (Neon PostgreSQL, Render Backend, Netlify Frontend).
   - **Agente:** Arquitecto / Revisor
