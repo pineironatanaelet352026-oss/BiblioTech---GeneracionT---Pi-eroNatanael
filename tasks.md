@@ -190,13 +190,13 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **Commit:** `78b0ae2`
   - **Estado:** `COMPLETADA`
 
-- [ ] **TASK-022**: Configuración y despliegue en la nube (Neon PostgreSQL, Render Backend, Netlify Frontend).
+- [x] **TASK-022**: Configuración y despliegue en la nube (Neon PostgreSQL, Render Backend, Netlify Frontend).
   - **Agente:** Arquitecto / Revisor
   - **RN/HU:** N/A (Despliegue)
   - **Dependencia:** TASK-021
-  - **Criterio de finalización:** Backend y Frontend accesibles públicamente con HTTPS y CORS restringido.
-  - **Commit:**
-  - **Estado:** `PENDIENTE`
+  - **Criterio de finalización:** Backend y Frontend accesibles públicamente con HTTPS y CORS restringido. Guía paso a paso y archivos de infraestructura generados (render.yaml, netlify.toml, DEPLOYMENT.md).
+  - **Commit:** `ad9f35d`
+  - **Estado:** `COMPLETADA`
 
 - [ ] **TASK-023**: Creación del README definitivo e Informe Final de Planificación y Pruebas.
   - **Agente:** Analista / Arquitecto / Tester

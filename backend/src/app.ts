@@ -8,15 +8,22 @@ import reservaRoutes from './routes/reservaRoutes.js';
 const app = express();
 
 // Configuración de CORS seguro
+const rawFrontendUrl = (process.env.FRONTEND_URL || '').replace(/\/$/, '');
 const allowedOrigins = [
-  process.env.FRONTEND_URL || 'http://localhost:5173',
+  rawFrontendUrl,
   'http://localhost:5173',
   'http://127.0.0.1:5173'
-];
+].filter(Boolean);
 
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin) return callback(null, true);
+    const normalizedOrigin = origin.replace(/\/$/, '');
+    if (
+      allowedOrigins.includes(normalizedOrigin) ||
+      normalizedOrigin.endsWith('.netlify.app') ||
+      process.env.NODE_ENV !== 'production'
+    ) {
       callback(null, true);
     } else {
       callback(new Error('Bloqueado por política CORS de BiblioTech'));
