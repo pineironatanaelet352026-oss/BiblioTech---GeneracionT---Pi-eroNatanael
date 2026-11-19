@@ -203,13 +203,13 @@ Este documento contiene el desglose secuencial de tareas pequeñas, ordenadas po
   - **RN/HU:** Todas
   - **Dependencia:** TASK-022
   - **Criterio de finalización:** `README.md` con enlaces públicos verificados e `informe-final.md` con justificación del orden de tareas y matriz de resultados de pruebas.
-  - **Commit:** `5185551`
+  - **Commit:** `df10ab0`
   - **Estado:** `COMPLETADA`
 
-- [ ] **TASK-024**: Auditoría final de entrega contra la checklist de la consigna.
+- [x] **TASK-024**: Auditoría final de entrega contra la checklist de la consigna.
   - **Agente:** Revisor / Product Owner
   - **RN/HU:** Todas
   - **Dependencia:** TASK-023
   - **Criterio de finalización:** Verificación punto por punto de la consigna oficial, 100% de tareas comiteadas y marcadas como completadas.
-  - **Commit:**
-  - **Estado:** `PENDIENTE`
+  - **Commit:** `c86debc`
+  - **Estado:** `COMPLETADA`
